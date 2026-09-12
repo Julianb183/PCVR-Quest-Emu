@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Intent
 import java.net.URI
 
 class MainActivity : Activity() {
@@ -36,6 +37,9 @@ class MainActivity : Activity() {
         }
 
         findViewById<Button>(R.id.loadButton).setOnClickListener { loadTrustedSite() }
+        findViewById<Button>(R.id.windowsButton).setOnClickListener {
+            startActivity(Intent(this, WindowsEmulatorActivity::class.java))
+        }
         loadTrustedSite()
     }
 

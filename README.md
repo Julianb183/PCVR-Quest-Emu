@@ -1,30 +1,22 @@
 # Quest Web ADB
 
-A native Kotlin Android app for Meta Quest that displays trusted HTTPS websites in a VR-friendly WebView.
+A native Kotlin Android app for Meta Quest with trusted HTTPS WebView mode and an experimental Windows ARM64 emulator launcher.
 
-## Current version
-
-The MVP provides:
+## Current features
 
 - Landscape Quest interface
-- HTTPS URL entry
-- Trusted-site WebView
+- HTTPS URL entry and trusted-site WebView
 - JavaScript and DOM storage for compatible web apps
 - Navigation restricted to HTTPS URLs
-- Status showing that the native ADB bridge is not connected
+- Windows ARM64 experiment screen with configurable 1–4 GB guest RAM
+- Emulated-GPU configuration placeholder
 
-This build does **not** provide unrestricted ADB access. A website cannot control the headset merely because it is loaded in a WebView. A future bridge must explicitly authorize individual operations such as device status, APK installation, or approved commands.
+## Windows ARM64 experiment
+
+This release adds the launcher and configuration UI, but it does not include Windows, Steam, SteamVR, QEMU, or a guest GPU. Add a legally obtained Windows 11 ARM64 VHDX and a licensed emulator backend before attempting a real guest boot. Steam and SteamVR must be installed by the user from official sources and are not redistributed here.
+
+The Quest Android sandbox does not provide a usable Windows hypervisor, so a future backend will be extremely slow with emulated graphics and is not expected to run SteamVR reliably.
 
 ## Build
 
-Open this folder in Android Studio, let Gradle sync, then build and install the APK with a Quest connected through developer mode. The project uses Android SDK 35 and Java 21. A reproducible Gradle wrapper is included.
-
-## Install the debug APK
-
-Connect a Quest with Developer Mode enabled, allow USB debugging in the headset, then run:
-
-```sh
-adb install -r app-debug.apk
-```
-
-The built APK is attached to the latest GitHub release.
+Open this folder in Android Studio or run `./gradlew assembleDebug`. The project uses Android SDK 35 and Java 21. A reproducible Gradle wrapper is included.
