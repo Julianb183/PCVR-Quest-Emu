@@ -1,0 +1,6 @@
+com.julianb183.questterminal:layout/activity_main = 0x7f020000
+com.julianb183.questterminal:id/output = 0x7f010001
+com.julianb183.questterminal:id/run = 0x7f010003
+com.julianb183.questterminal:style/AppTheme = 0x7f030000
+com.julianb183.questterminal:id/outputScroll = 0x7f010002
+com.julianb183.questterminal:id/input = 0x7f010000

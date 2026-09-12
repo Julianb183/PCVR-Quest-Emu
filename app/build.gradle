@@ -1,0 +1,12 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android { namespace 'com.julianb183.questterminal'; compileSdk 35
+    defaultConfig { applicationId 'com.julianb183.questterminal'; minSdk 29; targetSdk 35; versionCode 1; versionName '0.1.0' }
+}
+
+// Use the working Java 21 runtime bundled with Minecraft on this Mac.
+kotlin { jvmToolchain(21) }
+
