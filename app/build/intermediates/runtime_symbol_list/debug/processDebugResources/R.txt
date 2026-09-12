@@ -1,6 +1,0 @@
-int id input 0x7f010000
-int id output 0x7f010001
-int id outputScroll 0x7f010002
-int id run 0x7f010003
-int layout activity_main 0x7f020000
-int style AppTheme 0x7f030000
