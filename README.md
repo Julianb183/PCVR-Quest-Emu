@@ -1,21 +1,35 @@
-# PCVR Quest Emu
+# Virtual Computer Lab and PCVR Quest Emu
 
-A native Meta Quest app focused on an experimental Windows ARM64 PCVR emulator—not WebUSB or a website launcher.
+Private experimental tools for Apple Silicon Mac and Meta Quest development.
 
-## Current app
+## Virtual Computer Lab
 
-- Boots directly into the PCVR Quest Emu screen
-- Configures 1–4 GB guest RAM, with 4 GB default
-- Describes a software/emulated GPU configuration
-- Provides start and stop emulator controls
-- Keeps the WebView activity in the source for later integration, but it is not the launcher
+`MacQuestSimulator/` builds a native macOS app that manages clean-room profiles for:
 
-## Important status
+- Windows 11 ARM64 through QEMU
+- Ubuntu ARM64 through QEMU
+- LineageOS ARM64 through QEMU
+- macOS ARM profile-only entry (generic QEMU cannot boot a normal macOS guest)
+- Mac host
+- Quest 3 simulator profile
 
-This release contains the emulator UI and configuration layer. It does not yet contain a working Windows virtual-machine backend, Windows image, Steam, SteamVR, or games. Add a legally obtained Windows 11 ARM64 VHDX and a compatible emulator backend before a real guest can boot. Steam and SteamVR must be installed by the user from official sources.
+Build and open it with:
 
-With 4 GB Quest memory and an emulated GPU, Windows and PCVR performance will be extremely slow and SteamVR is unlikely to be usable. This is an experimental ARM64 emulation project.
+```sh
+cd MacQuestSimulator
+swift build -c release
+```
 
-## Build
+The app is a manager UI. It does not bundle operating systems, firmware, proprietary applications, Windows, macOS, Android, or Quest system files. Add legally obtained guest images to the workspace created under `~/Virtual Computer Lab/`.
 
-Run `./gradlew assembleDebug` with Android SDK 35 and Java 21, then install the APK with ADB.
+QEMU is expected at `/opt/homebrew/bin/qemu-system-aarch64` on Apple Silicon. The current app validates the profile and prepares its workspace; full guest boot configuration remains experimental.
+
+## Android PCVR Quest Emu
+
+The Android project contains the Quest launcher/configuration UI, an Android NDK JNI runner, and a guest-image picker. It does not include Windows, Steam, SteamVR, or games.
+
+```sh
+./gradlew assembleDebug
+```
+
+Use only legally obtained images and software.

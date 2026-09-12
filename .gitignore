@@ -4,3 +4,11 @@ local.properties
 *.iml
 .idea/
 .DS_Store
+# Generated build outputs
+.gradle/
+.kotlin/
+app/.cxx/
+app/build/
+MacQuestSimulator/.build/
+third_party/qemu/build*/
+third_party/qemu/.ninja_*
