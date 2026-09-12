@@ -12,3 +12,5 @@ app/build/
 MacQuestSimulator/.build/
 third_party/qemu/build*/
 third_party/qemu/.ninja_*
+__pycache__/
+*.py[cod]
