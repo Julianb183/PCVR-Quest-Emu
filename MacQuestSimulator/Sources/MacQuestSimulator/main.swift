@@ -27,6 +27,8 @@ struct LabView: View {
     @State private var cpu = 24.0
     @State private var memory = 4096.0
     @State private var isDownloading = false
+    @State private var selectedISO: URL?
+    @State private var selectedIPSW: URL?
 
     private let machines = [
         LabMachine(name: "Mac", subtitle: "macOS ARM host", symbol: "desktopcomputer", color: .blue, status: "Host online", qemuTarget: nil),
@@ -109,6 +111,10 @@ struct LabView: View {
                 }.buttonStyle(.borderedProminent)
                 Button("Reset") { running = false; log = "Reset \(machine.name) profile" }
                 Button("Open Console") { openConsole(for: machine) }
+                Button("Upload ISO") { chooseImage(kind: "ISO", for: machine) }
+                if machine.name == "macOS ARM" {
+                    Button("Upload IPSW") { chooseImage(kind: "IPSW", for: machine) }
+                }
                 if machine.name != "Quest" {
                     Button(isDownloading ? "Preparing…" : "Download Files") {
                         downloadComponents(for: machine)
@@ -116,8 +122,14 @@ struct LabView: View {
                     .disabled(isDownloading)
                 }
             }
+            if let selectedISO {
+                Text("ISO: \(selectedISO.lastPathComponent)").font(.caption).foregroundStyle(.green)
+            }
+            if let selectedIPSW {
+                Text("IPSW: \(selectedIPSW.lastPathComponent)").font(.caption).foregroundStyle(.green)
+            }
             if machine.name != "Quest" {
-                Text("Download Files prepares a VM-manager workspace for legal/open-source components. Operating-system installers and proprietary apps are not bundled.")
+                Text("Download Files prepares a VM-manager workspace for legal/open-source components. Upload only images you obtained legally.")
                     .font(.caption).foregroundStyle(.secondary)
             } else {
                 Text("Quest downloads are disabled for this lab profile.")
@@ -150,6 +162,31 @@ struct LabView: View {
         }
         .padding(24).frame(maxWidth: .infinity, minHeight: 260, alignment: .leading)
         .background(LinearGradient(colors: [.black, machine.color.opacity(0.35)], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
+    }
+
+    private func chooseImage(kind: String, for machine: LabMachine) {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.allowedContentTypes = kind == "ISO" ? [.diskImage] : [.data]
+        panel.title = "Upload \(kind) for \(machine.name)"
+        guard panel.runModal() == .OK, let source = panel.url else { return }
+        let workspace = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Virtual Computer Lab")
+            .appendingPathComponent(machine.name)
+        do {
+            try FileManager.default.createDirectory(at: workspace, withIntermediateDirectories: true)
+            let destination = workspace.appendingPathComponent(source.lastPathComponent)
+            if FileManager.default.fileExists(atPath: destination.path) {
+                try FileManager.default.removeItem(at: destination)
+            }
+            try FileManager.default.copyItem(at: source, to: destination)
+            if kind == "ISO" { selectedISO = destination } else { selectedIPSW = destination }
+            log = "Uploaded \(kind) to ~/Virtual Computer Lab/\(machine.name)/"
+        } catch {
+            log = "Could not upload \(kind): \(error.localizedDescription)"
+        }
     }
 
     private func startQEMU(for machine: LabMachine) {
