@@ -1,18 +1,19 @@
-# Quest Terminal
+# Quest Web ADB
 
-A native Kotlin Android terminal-style app for Meta Quest.
+A native Kotlin Android app for Meta Quest that displays trusted HTTPS websites in a VR-friendly WebView.
 
 ## Current version
 
-The starter app provides a VR-friendly landscape console with an on-screen keyboard and safe, app-sandbox commands:
+The MVP provides:
 
-- `help`
-- `pwd`
-- `ls`
-- `clear`
-- `echo TEXT`
+- Landscape Quest interface
+- HTTPS URL entry
+- Trusted-site WebView
+- JavaScript and DOM storage for compatible web apps
+- Navigation restricted to HTTPS URLs
+- Status showing that the native ADB bridge is not connected
 
-It does **not** execute arbitrary Android shell commands or access the Quest system. Android apps are sandboxed, so a full device terminal would require a separate computer connection or a carefully designed native command layer.
+This build does **not** provide unrestricted ADB access. A website cannot control the headset merely because it is loaded in a WebView. A future bridge must explicitly authorize individual operations such as device status, APK installation, or approved commands.
 
 ## Build
 
