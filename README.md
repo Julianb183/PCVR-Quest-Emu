@@ -1,22 +1,21 @@
-# Quest Web ADB
+# PCVR Quest Emu
 
-A native Kotlin Android app for Meta Quest with trusted HTTPS WebView mode and an experimental Windows ARM64 emulator launcher.
+A native Meta Quest app focused on an experimental Windows ARM64 PCVR emulator—not WebUSB or a website launcher.
 
-## Current features
+## Current app
 
-- Landscape Quest interface
-- HTTPS URL entry and trusted-site WebView
-- JavaScript and DOM storage for compatible web apps
-- Navigation restricted to HTTPS URLs
-- Windows ARM64 experiment screen with configurable 1–4 GB guest RAM
-- Emulated-GPU configuration placeholder
+- Boots directly into the PCVR Quest Emu screen
+- Configures 1–4 GB guest RAM, with 4 GB default
+- Describes a software/emulated GPU configuration
+- Provides start and stop emulator controls
+- Keeps the WebView activity in the source for later integration, but it is not the launcher
 
-## Windows ARM64 experiment
+## Important status
 
-This release adds the launcher and configuration UI, but it does not include Windows, Steam, SteamVR, QEMU, or a guest GPU. Add a legally obtained Windows 11 ARM64 VHDX and a licensed emulator backend before attempting a real guest boot. Steam and SteamVR must be installed by the user from official sources and are not redistributed here.
+This release contains the emulator UI and configuration layer. It does not yet contain a working Windows virtual-machine backend, Windows image, Steam, SteamVR, or games. Add a legally obtained Windows 11 ARM64 VHDX and a compatible emulator backend before a real guest can boot. Steam and SteamVR must be installed by the user from official sources.
 
-The Quest Android sandbox does not provide a usable Windows hypervisor, so a future backend will be extremely slow with emulated graphics and is not expected to run SteamVR reliably.
+With 4 GB Quest memory and an emulated GPU, Windows and PCVR performance will be extremely slow and SteamVR is unlikely to be usable. This is an experimental ARM64 emulation project.
 
 ## Build
 
-Open this folder in Android Studio or run `./gradlew assembleDebug`. The project uses Android SDK 35 and Java 21. A reproducible Gradle wrapper is included.
+Run `./gradlew assembleDebug` with Android SDK 35 and Java 21, then install the APK with ADB.

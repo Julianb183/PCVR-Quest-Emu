@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
     android:padding="24dp" android:background="#05070A">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WINDOWS ARM64 EXPERIMENT" android:textColor="#00E5FF" android:textSize="20sp" android:typeface="monospace" />
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Quest emulator prototype • very slow expected" android:textColor="#FFCC80" android:paddingTop="8dp" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PCVR QUEST EMU" android:textColor="#00E5FF" android:textSize="24sp" android:typeface="monospace" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Windows ARM64 • software GPU • experimental" android:textColor="#FFCC80" android:paddingTop="8dp" />
     <EditText android:id="@+id/memoryInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="4096" android:hint="RAM in MB" android:inputType="number" android:textColor="#FFFFFF" />
-    <Button android:id="@+id/startWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PREPARE WINDOWS 11 ARM64" />
-    <Button android:id="@+id/stopWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="STOP" />
-    <TextView android:id="@+id/emulatorStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="No guest configured" android:textColor="#D8F3DC" android:typeface="monospace" android:paddingTop="16dp" />
+    <Button android:id="@+id/startWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="START WINDOWS 11 ARM64" />
+    <Button android:id="@+id/stopWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="STOP EMULATOR" />
+    <TextView android:id="@+id/emulatorStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="No Windows guest running" android:textColor="#D8F3DC" android:typeface="monospace" android:paddingTop="16dp" />
 </LinearLayout>

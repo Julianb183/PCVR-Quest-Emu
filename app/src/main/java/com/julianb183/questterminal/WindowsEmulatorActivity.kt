@@ -30,6 +30,6 @@ class WindowsEmulatorActivity : Activity() {
             Toast.makeText(this, "RAM must be between 1024 and 4096 MB", Toast.LENGTH_SHORT).show()
             return
         }
-        status.text = "Prototype configuration ready\nWindows 11 ARM64 • ${ramMb} MB RAM • emulated GPU\n\nNo Windows image selected. Add a legally obtained ARM64 VHDX to start a real QEMU/WHPX guest."
+        status.text = "PCVR Windows emulator configured\nWindows 11 ARM64 • ${ramMb} MB RAM • software/emulated GPU\n\nNo guest image or emulator backend is installed. Add a legally obtained ARM64 VHDX and a compatible emulator backend to boot Windows."
     }
 }
