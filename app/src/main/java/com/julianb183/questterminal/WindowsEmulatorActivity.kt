@@ -52,7 +52,7 @@ class WindowsEmulatorActivity : Activity() {
             contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         } catch (_: SecurityException) { }
         imagePath = copyImageToPrivateStorage(uri)
-        status.text = "Guest image selected:\n${imagePath ?: "Could not copy image"}\n\nSelect START after the native QEMU backend is installed."
+        status.text = "Guest image selected:\n${imagePath ?: "Could not copy image"}\n\nPress START to launch the ARM64 QEMU backend."
     }
 
     private fun openBlenderFile() {
