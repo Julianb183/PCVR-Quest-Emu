@@ -15,12 +15,15 @@ class WindowsEmulatorActivity : Activity() {
     private lateinit var status: TextView
     private lateinit var memory: EditText
     private var imagePath: String? = null
+    private lateinit var vmBackend: VmBackend
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_windows_emulator)
         status = findViewById(R.id.emulatorStatus)
         memory = findViewById(R.id.memoryInput)
+        vmBackend = VmBackend(this)
+        status.text = "No guest image selected\n\n${vmBackend.installHint()}"
 
         findViewById<Button>(R.id.selectImage).setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -104,7 +107,7 @@ class WindowsEmulatorActivity : Activity() {
             status.text = "Select a legally obtained Windows 11 ARM64 image first."
             return
         }
-        status.text = EmulatorNative.nativeStart(image, ramMb, applicationInfo.nativeLibraryDir)
+        status.text = EmulatorNative.nativeStart(image, ramMb, vmBackend.directory.absolutePath)
     }
 
     companion object {
