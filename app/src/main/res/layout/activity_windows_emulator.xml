@@ -1,13 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#05070A">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PCVR QUEST EMU" android:textColor="#00E5FF" android:textSize="24sp" android:typeface="monospace" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Windows ARM64 • QEMU system emulation • experimental" android:textColor="#FFCC80" android:paddingTop="8dp" />
-        <EditText android:id="@+id/memoryInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="4096" android:hint="RAM in MB" android:inputType="number" android:textColor="#FFFFFF" />
-        <Button android:id="@+id/selectImage" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SELECT WINDOWS ARM64 IMAGE" />
-        <Button android:id="@+id/openBlender" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="OPEN BLENDER .BLEND FILE" />
-        <Button android:id="@+id/startWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="START EMULATOR" />
-        <Button android:id="@+id/stopWindows" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="STOP EMULATOR" />
-        <TextView android:id="@+id/emulatorStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="No guest image selected\nNative QEMU backend required" android:textColor="#D8F3DC" android:typeface="monospace" android:paddingTop="16dp" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F3F3F3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PCVR QUEST EMU"
+            android:textColor="#0078D7"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Windows 10 ARM64 virtual machine"
+            android:textColor="#444444"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="VM SETTINGS"
+            android:textColor="#0078D7"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/memoryInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:hint="Memory in MB (1024–4096)"
+            android:inputType="number"
+            android:text="4096"
+            android:textColor="#202020"
+            android:textColorHint="#666666" />
+
+        <Button
+            android:id="@+id/selectImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="52dp"
+            android:text="SELECT WINDOWS 10 ARM64 IMAGE"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="TOOLS"
+            android:textColor="#0078D7"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/openBlender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:minHeight="52dp"
+            android:text="OPEN BLENDER FILE"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/startWindows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="56dp"
+                android:text="START VM"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/stopWindows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="56dp"
+                android:text="STOP VM"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emulatorStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:text="No Windows 10 image selected"
+            android:textColor="#222222"
+            android:textIsSelectable="true"
+            android:typeface="monospace" />
     </LinearLayout>
 </ScrollView>
