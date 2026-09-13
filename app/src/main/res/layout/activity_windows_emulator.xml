@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Windows 10 ARM64 virtual machine"
+            android:text="Windows ARM64 virtual machine"
             android:textColor="#444444"
             android:textSize="16sp" />
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:minHeight="52dp"
-            android:text="SELECT WINDOWS 10 ARM64 IMAGE"
+            android:text="SELECT WINDOWS ARM64 IMAGE"
             android:textAllCaps="false" />
 
         <TextView

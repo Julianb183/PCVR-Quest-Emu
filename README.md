@@ -1,6 +1,6 @@
 # PCVR Quest Emu
 
-Experimental Android/Meta Quest ARM64 VM frontend. The app can select a legally obtained Windows 10 or Windows 11 ARM64 guest disk image and start a native `qemu-system-aarch64` backend through JNI.
+Experimental Android/Meta Quest ARM64 VM frontend. The app can select a legally obtained Windows ARM64 guest disk image and start a native `qemu-system-aarch64` backend through JNI.
 
 ## VM backend
 

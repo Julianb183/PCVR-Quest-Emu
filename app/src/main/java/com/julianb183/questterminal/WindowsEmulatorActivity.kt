@@ -54,7 +54,7 @@ class WindowsEmulatorActivity : Activity() {
             contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
         } catch (_: SecurityException) { }
         imagePath = copyImageToPrivateStorage(uri)
-        status.text = "Windows 10 ARM64 image selected:\n${imagePath ?: "Could not copy image"}\n\nPress START to launch the VM."
+        status.text = "Windows ARM64 image selected:\n${imagePath ?: "Could not copy image"}\n\nPress START to launch the VM."
     }
 
     private fun openBlenderFile() {
@@ -82,7 +82,7 @@ class WindowsEmulatorActivity : Activity() {
     }
 
     private fun copyImageToPrivateStorage(uri: Uri): String? {
-        val target = File(filesDir, "guest/Windows10-arm64.img")
+        val target = File(filesDir, "guest/Windows11-arm64.img")
         target.parentFile?.mkdirs()
         return try {
             contentResolver.openInputStream(uri)?.use { input ->
@@ -103,7 +103,7 @@ class WindowsEmulatorActivity : Activity() {
         }
         val image = imagePath
         if (image == null) {
-            status.text = "Select a legally obtained Windows 10 ARM64 image first."
+            status.text = "Select a legally obtained Windows ARM64 image first."
             return
         }
         status.text = EmulatorNative.nativeStart(image, ramMb, vmBackend.directory.absolutePath)
