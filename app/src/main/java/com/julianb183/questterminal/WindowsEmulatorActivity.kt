@@ -20,6 +20,7 @@ class WindowsEmulatorActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_windows_emulator)
         status = findViewById(R.id.emulatorStatus)
+        status.announceForAccessibility("Virtual machine status")
         memory = findViewById(R.id.memoryInput)
         vmBackend = VmBackend(this)
         status.text = "No guest image selected\n\n${vmBackend.installHint()}"
@@ -36,6 +37,7 @@ class WindowsEmulatorActivity : Activity() {
         findViewById<Button>(R.id.startWindows).setOnClickListener { startEmulator() }
         findViewById<Button>(R.id.stopWindows).setOnClickListener {
             status.text = EmulatorNative.nativeStop()
+            status.announceForAccessibility(status.text)
         }
     }
 
@@ -107,6 +109,7 @@ class WindowsEmulatorActivity : Activity() {
             return
         }
         status.text = EmulatorNative.nativeStart(image, ramMb, vmBackend.directory.absolutePath)
+        status.announceForAccessibility(status.text)
     }
 
     companion object {

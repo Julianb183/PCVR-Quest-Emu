@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F3F3F3">
+    android:background="#101820"
+    android:contentDescription="Windows ARM64 virtual machine controls">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,102 +16,147 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PCVR QUEST EMU"
-            android:textColor="#0078D7"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:accessibilityHeading="true" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:text="Windows ARM64 virtual machine"
-            android:textColor="#444444"
-            android:textSize="16sp" />
+            android:textColor="#B9E6FF"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="VM SETTINGS"
-            android:textColor="#0078D7"
-            android:textStyle="bold" />
+            android:text="Accessible controls. Move through the controls with the Quest controller, keyboard, or screen reader."
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="VIRTUAL MACHINE SETTINGS"
+            android:textColor="#6DD5FF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:accessibilityHeading="true" />
+
+        <TextView
+            android:id="@+id/memoryLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Guest memory, in megabytes. Choose between 1024 and 4096."
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/memoryInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:hint="Memory in MB (1024–4096)"
+            android:backgroundTint="#6DD5FF"
+            android:hint="For example, 4096"
+            android:importantForAutofill="no"
             android:inputType="number"
+            android:minHeight="58dp"
             android:text="4096"
-            android:textColor="#202020"
-            android:textColorHint="#666666" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B9C7D0"
+            android:contentDescription="Guest memory in megabytes" />
 
         <Button
             android:id="@+id/selectImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minHeight="52dp"
+            android:layout_marginTop="16dp"
+            android:minHeight="64dp"
             android:text="SELECT WINDOWS ARM64 IMAGE"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:contentDescription="Select a legally obtained Windows ARM64 disk image" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="26dp"
             android:text="TOOLS"
-            android:textColor="#0078D7"
-            android:textStyle="bold" />
+            android:textColor="#6DD5FF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:accessibilityHeading="true" />
 
         <Button
             android:id="@+id/openBlender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:minHeight="52dp"
+            android:layout_marginTop="12dp"
+            android:minHeight="64dp"
             android:text="OPEN BLENDER FILE"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:contentDescription="Choose a Blender blend file to copy into the app" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="26dp"
+            android:text="VM CONTROLS"
+            android:textColor="#6DD5FF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:accessibilityHeading="true" />
 
-            <Button
-                android:id="@+id/startWindows"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="56dp"
-                android:text="START VM"
-                android:textAllCaps="false" />
+        <Button
+            android:id="@+id/startWindows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="72dp"
+            android:text="START VIRTUAL MACHINE"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:contentDescription="Start the Windows ARM64 virtual machine" />
 
-            <Space
-                android:layout_width="12dp"
-                android:layout_height="1dp" />
+        <Button
+            android:id="@+id/stopWindows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="72dp"
+            android:text="STOP VIRTUAL MACHINE"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:contentDescription="Stop the virtual machine" />
 
-            <Button
-                android:id="@+id/stopWindows"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="56dp"
-                android:text="STOP VM"
-                android:textAllCaps="false" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="STATUS"
+            android:textColor="#6DD5FF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:accessibilityHeading="true" />
 
         <TextView
             android:id="@+id/emulatorStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="12dp"
             android:background="#FFFFFF"
-            android:padding="16dp"
-            android:text="No Windows 10 image selected"
-            android:textColor="#222222"
+            android:padding="18dp"
+            android:text="No Windows image selected"
+            android:textColor="#101820"
             android:textIsSelectable="true"
-            android:typeface="monospace" />
+            android:textSize="17sp"
+            android:typeface="monospace"
+            android:contentDescription="Virtual machine status" />
     </LinearLayout>
 </ScrollView>
